@@ -5,6 +5,10 @@ const rockBtn = document.querySelector(".rock");
 const paperBtn = document.querySelector(".paper");
 const scissorsBtn = document.querySelector(".scissor");
 const scoreSheet = document.querySelector(".score-sheet");
+const mainPics = document.querySelector(".first-pics");
+const stepPics = document.querySelector(".step-two");
+const myOptions = document.querySelectorAll(".my-options");
+const cpuOptions = document.querySelectorAll(".cpu-options");
 
 // GLOBAL VALUES
 const ROCK = "ROCK";
@@ -17,12 +21,27 @@ function cpuRandomPick() {
   const cpuPicker = Math.ceil(Math.random() * CPU_PICK_VALUE);
   console.log(cpuPicker);
   if (cpuPicker <= 3) {
+    cpuOptions.forEach((option) => {
+      cpuOptions[0].style.display = "none";
+      cpuOptions[1].style.display = "rock";
+      cpuOptions[2].style.display = "none";
+    });
     console.log("cpu chose", ROCK);
     return ROCK;
   } else if (cpuPicker > 3 && cpuPicker <= 6) {
+    cpuOptions.forEach((option) => {
+      cpuOptions[0].style.display = "paper";
+      cpuOptions[1].style.display = "none";
+      cpuOptions[2].style.display = "none";
+    });
     console.log("cpu chose", PAPER);
     return PAPER;
   } else if (cpuPicker > 6 && cpuPicker <= 9) {
+    cpuOptions.forEach((option) => {
+      cpuOptions[0].style.display = "none";
+      cpuOptions[1].style.display = "none";
+      cpuOptions[2].style.display = "scissors";
+    });
     console.log("cpu chose", SCISSORS);
     return SCISSORS;
   }
@@ -33,12 +52,33 @@ function playerTurnHandler(mode) {
   let choose;
   if (mode === ROCK) {
     choose = ROCK;
+    mainPics.style.display = "none";
+    stepPics.style.display = "flex";
+    myOptions.forEach((option) => {
+      myOptions[0].style.display = "none";
+      myOptions[1].style.display = "rock";
+      myOptions[2].style.display = "none";
+    });
     console.log("player chose", ROCK);
   } else if (mode === PAPER) {
     choose = PAPER;
+    mainPics.style.display = "none";
+    stepPics.style.display = "flex";
+    myOptions.forEach((option) => {
+      myOptions[0].style.display = "paper";
+      myOptions[1].style.display = "none";
+      myOptions[2].style.display = "none";
+    });
     console.log("player chose", PAPER);
   } else if (mode === SCISSORS) {
     choose = SCISSORS;
+    mainPics.style.display = "none";
+    stepPics.style.display = "flex";
+    myOptions.forEach((option) => {
+      myOptions[0].style.display = "none";
+      myOptions[1].style.display = "none";
+      myOptions[2].style.display = "scissors";
+    });
     console.log("player chose", SCISSORS);
   }
 

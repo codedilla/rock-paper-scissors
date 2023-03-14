@@ -111,8 +111,22 @@ p {
   width: 80px;
 }
 
-.pics {
+.first-pics {
   position: relative;
+}
+
+.step-two {
+  display: none;
+  justify-content: space-between;
+}
+
+.my-options {
+  position: fixed;
+}
+
+.cpu-options {
+  position: fixed;
+  right: 10%;
 }
 
 .paper {
